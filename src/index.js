@@ -5,29 +5,50 @@ import "./index.css";
 // import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
-
 const nums = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0];
 const ops = ["/", "*", "-", "+", "="];
 
 class App extends React.Component {
+  state = {
+    lastPressed: undefined,
+    currentNumber: "0",
+    prevNumber: undefined,
+  };
+
   handleClick = (e) => {
-    console.log(e);
-    console.log(e.target.innerText);
+    // console.log(e);
+    // console.log(e.target.innerText);
+    const { lastPressed, currentNumber, prevNumber } = this.state;
     const { innerText } = e.target;
-    console.log(innerText);
-    alert(innerText);
+    // console.log(innerText);
+    // alert(innerText);
+
+    if (!Number.isNaN(Number(innerText))) {
+      if (currentNumber === "0") {
+        this.setState({
+          currentNumber: innerText,
+        });
+      } else {
+        this.setState({
+          currentNumber: currentNumber + innerText,
+        });
+      }
+    }
+    switch (innerText) {
+    }
+
+    this.setState({
+      lastPressed: innerText,
+    });
+    // alert(innerText);
   };
   render() {
+    const { currentNumber } = this.state;
+
     return (
       <div className=" calculator">
         <div id="display" className="display">
-          125
+          {currentNumber}
         </div>
         <div className="nums-container">
           <button className="big-h light-grey ac" onClick={this.handleClick}>
