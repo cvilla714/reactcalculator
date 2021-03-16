@@ -10,15 +10,16 @@ const ops = ["/", "*", "-", "+", "="];
 
 class App extends React.Component {
   state = {
-    lastPressed: undefined,
+    // lastPressed: undefined,
     currentNumber: "0",
     prevNumber: undefined,
+    operation: undefined,
   };
 
   handleClick = (e) => {
     // console.log(e);
     // console.log(e.target.innerText);
-    const { lastPressed, currentNumber, prevNumber } = this.state;
+    const { currentNumber, prevNumber, operation } = this.state;
     const { innerText } = e.target;
     // console.log(innerText);
     // alert(innerText);
@@ -39,6 +40,7 @@ class App extends React.Component {
         this.setState({
           currentNumber: "0",
           prevNumber: undefined,
+          operation: undefined,
         });
         break;
       }
@@ -50,6 +52,22 @@ class App extends React.Component {
           });
         }
         break;
+      }
+      default: {
+        if (!operation) {
+          this.setState({
+            operation: innerText,
+            prevNumber: currentNumber,
+            currentNumber: "0",
+          });
+        } else {
+          const evaluated = eval(`${prevNumber} ${operation} ${currentNumber}`);
+          this.setState({
+            operation: innerText,
+            prevNumber: eval(),
+            currentNumber: innerText === "=" ? evaluated : "0",
+          });
+        }
       }
     }
 
