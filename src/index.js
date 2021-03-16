@@ -35,6 +35,22 @@ class App extends React.Component {
       }
     }
     switch (innerText) {
+      case "AC": {
+        this.setState({
+          currentNumber: "0",
+          prevNumber: undefined,
+        });
+        break;
+      }
+
+      case ".": {
+        if (!currentNumber.includes(".")) {
+          this.setState({
+            currentNumber: currentNumber + innerText,
+          });
+        }
+        break;
+      }
     }
 
     this.setState({
