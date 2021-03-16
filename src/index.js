@@ -34,6 +34,7 @@ class App extends React.Component {
           currentNumber: currentNumber + innerText,
         });
       }
+      return;
     }
     switch (innerText) {
       case "AC": {
@@ -71,9 +72,9 @@ class App extends React.Component {
       }
     }
 
-    this.setState({
-      lastPressed: innerText,
-    });
+    // this.setState({
+    // lastPressed: innerText,
+    // });
     // alert(innerText);
   };
   render() {
@@ -81,6 +82,7 @@ class App extends React.Component {
 
     return (
       <div className=" calculator">
+        <p style={{ position: "absolute", top: 0 }}>{JSON.stringify(this.state, null, 2)}</p>
         <div id="display" className="display">
           {currentNumber}
         </div>
