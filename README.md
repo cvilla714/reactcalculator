@@ -14,7 +14,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://cocky-mestorf-87aa0f.netlify.app/)
+[Live Demo Link]()
 
 ## Getting Started
 
