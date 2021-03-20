@@ -14,7 +14,7 @@
 
 ## Live Demo
 
-[Live Demo Link]()https://cvilla714.github.io/reactcalculator/
+[Live Demo Link](https://cvilla714.github.io/reactcalculator/)
 
 ## Getting Started
 
